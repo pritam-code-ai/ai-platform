@@ -1,0 +1,15 @@
+name: conda_yaml_file
+channels:
+  - defaults
+dependencies:
+  - matplotlib==3.0.2
+  - keras==2.1.4
+  - dlib
+  - pip:
+    - mlflow
+    - librosa==0.6.0
+    - argparse==1.1
+    - numpy==1.16.4
+    - opencv-python==3.4.2.16
+    - math
+    - copy

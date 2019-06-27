@@ -1,0 +1,10 @@
+name: conda_yaml_file
+channels:
+  - defaults
+dependencies:
+  - pip:
+    - mlflow
+    - textblob==0.15.3
+    - argparse==1.1
+    - vaderSentiment==3.2.1
+
