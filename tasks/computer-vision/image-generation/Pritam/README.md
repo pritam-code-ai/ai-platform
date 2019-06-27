@@ -1,3 +1,8 @@
+download the pre-trained model-    D80_C3.h5      from this link- 
+
+https://github.com/pritam-code-ai/ai-platform/blob/master/tasks/computer-vision/image-generation/Pritam/D80_C3.h5
+
+
 input: 
    
    pre_trained model file: 
