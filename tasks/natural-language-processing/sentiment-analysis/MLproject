@@ -1,0 +1,14 @@
+name: mlflow_MLproject_file
+
+conda_env: conda_yaml_file.yaml
+
+
+entry_points:
+  main:
+    parameters:
+      text_data_file_input_path : {type: str, default: "summary_file.txt"}
+      
+      
+    command: "python deep_sentiment_analysis.py --text_data_file_input_path {text_data_file_input_path}"
+
+
