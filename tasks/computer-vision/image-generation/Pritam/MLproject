@@ -1,0 +1,14 @@
+name: mlflow_MLproject_file
+
+conda_env: conda_yaml_file.yaml
+
+
+entry_points:
+  main:
+    parameters:
+      pre_trained_model_path_as_string : {type: str, default: "D80_C3.h5"}
+      input_audio_file_path_as_string : {type: str, default: "audio_input_data/summary.flac"}
+
+      
+      
+    command: "python talking_face_video_generation_by_python.py --pre_trained_model_path_as_string {pre_trained_model_path_as_string} --input_audio_file_path_as_string {input_audio_file_path_as_string}"
