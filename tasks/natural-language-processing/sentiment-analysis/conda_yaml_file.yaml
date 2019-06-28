@@ -2,8 +2,10 @@ name: conda_yaml_file
 channels:
   - defaults
 dependencies:
+  - python==3.7.3
   - pip:
-    - mlflow
+    - mlflow==1.0.0
+    - nltk==3.4.3
     - textblob==0.15.3
     - argparse==1.1
     - vaderSentiment==3.2.1

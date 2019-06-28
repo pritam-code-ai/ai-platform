@@ -7,7 +7,6 @@
 from textblob import TextBlob 
 from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer 
 import mlflow 
-from  mlflow.tracking import MlflowClient 
 import os 
 import argparse 
 
@@ -157,37 +156,6 @@ if __name__ == "__main__":
     
     print("-----------------------------------------")
     
-    if not os.path.isdir("client_uri"):
-        os.makedirs("client_uri")
-        
-    mlflow.tracking.set_tracking_uri("client_uri")
-    mlflow.tracking.get_tracking_uri()
-    
-    
-    client = MlflowClient()
-    experiments = client.create_experiment("deep_sentiment_analysis")
-    run = client.create_run(experiments[0])
-    
-    
-    client.log_artifact(run.info.run_id, utterences_file_path)
-    client.log_param(run.info.run_id,"utterences", utterences)
-    client.set_tag(run.info.run_id, "mlflow_tracking_code", "mlflow_tracking_code")
-    
-    
-    client.list_artifacts(run.info.run_id)
-    client.list_experiments()
-    client.list_run_infos("0")
-    client.get_run(run.info.run_id)
-    client.get_experiment_by_name("deep_sentiment_analysis")
-    client.get_experiment("0")
-    
-    
-    #client.search_runs(["0",1,"2"], max_results=3)
-    
-    
-    client.rename_experiment("0", "deep_sentiment_analysis_renamed")
-    client.get_experiment("0")
-    
-    client.set_terminated(run.info.run_id)
-    
-
+    with mlflow.start_run():
+        mlflow.log_param("text_data_file_input_path", input_file_path)
+        mlflow.log_artifact("utterences.txt")

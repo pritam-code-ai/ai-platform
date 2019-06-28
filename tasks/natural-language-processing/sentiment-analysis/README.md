@@ -9,16 +9,15 @@ input:
 
 output: 
 
-   utterences.txt 
+       utterences.txt 
 .
 
 
 
 command: 
 
-     python deep_sentiment_analysis.py 
+     mlflow run .
 
+     for different parameter input from command-line- 
 
-     for diffrent parameter input from command-line- 
-
-     python deep_sentiment_analysis.py --text_data_file_input_path "summary_file.txt" 
+     mlflow run . -P text_data_file_input_path=summary_file.txt
