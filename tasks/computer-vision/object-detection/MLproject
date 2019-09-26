@@ -1,0 +1,39 @@
+name: object-detection
+
+conda_env: conda.yaml
+
+entry_points:
+  yolov3_weights_to_keras:
+    parameters:
+      darknet_model_path: {type: string, default: 'None'}
+      dataset: {type: string, default: 'coco'}
+      SPP: {type: float, default: 0}
+      kerasPath: {type: string, default: 'None'}
+      darknet_url: {type: string, default: 'None'}
+    command: "python yolov3_weights_to_keras.py {darknet_model_path} {dataset} {SPP} {kerasPath} {darknet_url}" 
+
+  detector:
+    parameters:
+      mode: {type: string, default: 'image'}
+      keras_model_path: {type: string, default: 'None'}
+      size: {type: float, default: 416}
+      dataset: {type: string, default: 'coco'}
+      file_name: {type: string, default: 'data/horses.jpg'}
+      
+      
+    command: "python detector.py {mode} {keras_model_path} {size} {dataset} {file_name}"
+
+  main:
+    parameters:
+      darknet_model_path: {type: string, default: 'None'}
+      dataset: {type: string, default: 'coco'}
+      SPP: {type: float, default: 0}
+      keras_model_path: {type: string, default: 'None'}
+      darknet_url: {type: string, default: 'None'}
+      mode: {type: string, default: 'image'}
+      size: {type: float, default: 416}
+      file_name: {type: string, default: 'data/horses.jpg'}
+      
+    
+    command: "python main.py {darknet_model_path} {dataset} {SPP} {keras_model_path} {mode} {size} {file_name} {darknet_url}"
+    

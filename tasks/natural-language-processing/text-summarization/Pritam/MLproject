@@ -1,0 +1,14 @@
+name: mlflow_MLproject_file
+
+conda_env: conda_yaml_file.yaml
+
+
+entry_points:
+  main:
+    parameters:
+      input_text_file_path_as_string : {type: str, default: "input_text_data_to_summarise.txt"}
+      condition_on_number_of_sentences_as_string_data : {type: str, default: "3"}
+      
+    command: "python advanced_conditioned_summarization.py --input_text_file_path_as_string {input_text_file_path_as_string} --condition_on_number_of_sentences_as_string_data {condition_on_number_of_sentences_as_string_data}"  
+
+
